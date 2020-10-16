@@ -1,7 +1,7 @@
 <!--
  * @Author: jacob
  * @Date: 2020-10-13 10:38:42
- * @LastEditTime: 2020-10-16 16:08:35
+ * @LastEditTime: 2020-10-16 18:23:30
  * @LastEditors: jacob
  * @Description: vue的入口文件
 -->
@@ -13,28 +13,71 @@
     </div>
     <router-view/> -->
    <el-container>
-    <el-header class="header">
+    <el-header class="header" style="height:120px">
         <el-menu
           :default-active="activeIndex"
-          class="el-menu-demo"
+          class="el-menu"
           mode="horizontal"
+          :router = "true"
           active-text-color="#409EFF">
           <img src="./assets/puppy1.png" alt="" style="float:left;height:60px" >
            <img src="./assets/qunee.png" alt="" style="float:left;height:60px">
-          <el-menu-item index="6">应用场景分析</el-menu-item>
-          <el-menu-item index="5">辅助图元</el-menu-item>
-          <el-menu-item index="4">线结构</el-menu-item>
-          <el-menu-item index="3">组结构</el-menu-item>
-          <el-menu-item index="2">点结构</el-menu-item>
-          <el-menu-item index="1">qunee概述</el-menu-item>
+          <el-menu-item index="/use">应用场景分析</el-menu-item>
+          <el-menu-item index="/assets">辅助图元</el-menu-item>
+          <el-menu-item index="/line">线结构</el-menu-item>
+          <el-menu-item index="/group">组结构</el-menu-item>
+          <el-menu-item index="/point">点结构</el-menu-item>
+          <el-menu-item index="/">qunee概述</el-menu-item>
         </el-menu>
     </el-header>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside width="200px">
+        <el-menu
+          default-active="2"
+          class="el-menu-vertical"
+         >
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>导航一</span>
+            </template>
+            <el-menu-item-group>
+              <template slot="title">分组一</template>
+              <el-menu-item index="1-1">选项1</el-menu-item>
+              <el-menu-item index="1-2">选项2</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group title="分组2">
+              <el-menu-item index="1-3">选项3</el-menu-item>
+            </el-menu-item-group>
+            <el-submenu index="1-4">
+              <template slot="title">选项4</template>
+              <el-menu-item index="1-4-1">选项1</el-menu-item>
+            </el-submenu>
+          </el-submenu>
+          <el-menu-item index="2">
+            <i class="el-icon-menu"></i>
+            <span slot="title">导航二</span>
+          </el-menu-item>
+          <el-menu-item index="3" disabled>
+            <i class="el-icon-document"></i>
+            <span slot="title">导航三</span>
+          </el-menu-item>
+          <el-menu-item index="4">
+            <i class="el-icon-setting"></i>
+            <span slot="title">导航四</span>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
       <el-main>
+        <vue-scroll :ops="ops" style="height:70vh">
           <router-view/>
+        </vue-scroll> 
       </el-main>
     </el-container>
+     <el-footer class="footer">
+        <el-divider style="margin:0"></el-divider>
+        <span></span>
+     </el-footer>
   </el-container>
   </div>
 </template>
@@ -42,7 +85,19 @@
   export default {
     data() {
       return {
-        activeIndex: '1'
+        activeIndex: '1',
+        ops: {
+          vuescroll: {},
+          scrollPanel: {},
+          rail: {
+            keepShow:true
+          },
+          bar: {
+            hoverStyle: true,
+            onlyShowBarOnScroll: false, //是否只有滚动的时候才显示滚动条
+            background: '#409EFF',
+          }
+        },
       };
     },
     methods: {
@@ -63,9 +118,28 @@
   margin: 0 auto;
   background-color: #ffffff;
   padding: 0;
+  .el-menu {
+    padding: 24px 10px;
+  }
   .el-menu-item {
     font-size: 16px;
     float: right;
+  }
+  .el-menu-vertical {
+    height: 68vh;
+  }
+  .header {
+    z-index: 999;
+    background-color: #ffffff;
+    position:  sticky;
+    top:0;
+    
+  }
+  .footer {
+    .el-divider--horizontal {
+      margin: 0;
+      border: 0.5px;
+    }
   }
 }
 
