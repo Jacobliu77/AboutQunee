@@ -1,6 +1,14 @@
+/*
+ * @Author: jacob
+ * @Date: 2020-10-13 10:38:42
+ * @LastEditTime: 2020-10-26 15:21:37
+ * @LastEditors: jacob
+ * @Description: 
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import test from '../views/test.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +17,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: test
   },
   {
     path: '/about',

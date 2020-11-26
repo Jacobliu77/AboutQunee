@@ -1,7 +1,7 @@
 <!--
  * @Author: jacob
  * @Date: 2020-10-13 10:38:42
- * @LastEditTime: 2020-10-16 18:23:30
+ * @LastEditTime: 2020-11-26 10:15:11
  * @LastEditors: jacob
  * @Description: vue的入口文件
 -->
@@ -36,24 +36,6 @@
           default-active="2"
           class="el-menu-vertical"
          >
-          <el-submenu index="1">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>导航一</span>
-            </template>
-            <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="1-1">选项1</el-menu-item>
-              <el-menu-item index="1-2">选项2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="1-3">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="1-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="1-4-1">选项1</el-menu-item>
-            </el-submenu>
-          </el-submenu>
           <el-menu-item index="2">
             <i class="el-icon-menu"></i>
             <span slot="title">导航二</span>
@@ -82,6 +64,9 @@
   </div>
 </template>
 <script>
+//第一次渴望要给一个人一个家，第一次渴望把一个人当作自己的瞳仁来时刻带在自己身上又能日日守护。
+//第一次渴望成为一个人最得力的帮助，第一次渴望成为一个人心上的印记，臂上的戳记
+// 
   export default {
     data() {
       return {
@@ -107,6 +92,7 @@
     }
   }
 </script>
+
 <style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
