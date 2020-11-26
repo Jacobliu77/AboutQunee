@@ -1,7 +1,7 @@
 <!--
  * @Author: jacob
  * @Date: 2020-10-13 10:38:42
- * @LastEditTime: 2020-11-26 10:15:11
+ * @LastEditTime: 2020-11-26 10:27:58
  * @LastEditors: jacob
  * @Description: vue的入口文件
 -->
@@ -34,13 +34,17 @@
       <el-aside width="200px">
         <el-menu
           default-active="2"
-          class="el-menu-vertical"
+          class="el-menu-vertical "
          >
+         <el-menu-item index="1">
+            <i class="el-icon-s-marketing"></i>
+            <span slot="title">导航一</span>
+          </el-menu-item>
           <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-s-open"></i>
             <span slot="title">导航二</span>
           </el-menu-item>
-          <el-menu-item index="3" disabled>
+          <el-menu-item index="3">
             <i class="el-icon-document"></i>
             <span slot="title">导航三</span>
           </el-menu-item>
@@ -51,7 +55,7 @@
         </el-menu>
       </el-aside>
       <el-main>
-        <vue-scroll :ops="ops" style="height:70vh">
+        <vue-scroll :ops="ops" style="height:68vh">
           <router-view/>
         </vue-scroll> 
       </el-main>
@@ -70,7 +74,7 @@
   export default {
     data() {
       return {
-        activeIndex: '1',
+        activeIndex: '/',
         ops: {
           vuescroll: {},
           scrollPanel: {},
@@ -113,6 +117,9 @@
   }
   .el-menu-vertical {
     height: 68vh;
+    .el-menu-item {
+       float: left;
+    }
   }
   .header {
     z-index: 999;

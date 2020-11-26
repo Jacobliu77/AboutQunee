@@ -11,6 +11,8 @@
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
     "json-bigint": "^1.0.0",
+    "jsonp": "^0.2.1",
+    "quneelib": "^1.0.9",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuescroll": "^4.16.1",

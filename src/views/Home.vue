@@ -1,35 +1,36 @@
 <!--
  * @Author: jacob
  * @Date: 2020-10-13 10:38:42
- * @LastEditTime: 2020-11-26 10:11:57
+ * @LastEditTime: 2020-11-26 15:11:49
  * @LastEditors: jacob
- * @Description: 
+ * @Description: another
 -->
 <template>
   <div class="home">
       <el-alert
-      :title="oneword"
+     
       type="success"
-      :closable="false" class="aleart11">
+      :closable="false" 
+      :description="oneword"
+      class="aleart11"> 
     </el-alert>
+    <weather></weather>
     <img alt="qunee logo" src="../assets/qunee-logo.png">
-    <HelloWorld msg="欢迎使用Qunee相关教程"/>
-    <br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+import weather from '@/components/weather.vue'
 import{ oneSay } from '@/api/home.js'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    HelloWorld, weather
   },
    data() {
      return {
@@ -40,8 +41,12 @@ export default {
      async loadOneWord () {
       const { data } = await oneSay()
       // console.log(data);
-      this.oneword = data.content
+      this.oneword ="一句温暖♥：" + data.content
     },
+    anotherOne () {
+      this.loadOneWord()
+      console.log(111);
+    }
    },
    created(){
      this.loadOneWord()
@@ -51,5 +56,9 @@ export default {
 <style lang="less" scoped> 
 .aleart11 {
   margin-bottom: 10px;
+  float: left;
+  width: 70%;
+  min-height: 43px;
+  text-align: left;
 }
 </style>
