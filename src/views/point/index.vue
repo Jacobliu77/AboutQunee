@@ -1,7 +1,7 @@
 <!--
  * @Author: jacob
  * @Date: 2020-11-26 10:30:02
- * @LastEditTime: 2020-11-26 17:49:23
+ * @LastEditTime: 2020-12-02 11:26:42
  * @LastEditors: jacob
  * @Description:点应用场景vue文件
 -->
@@ -13,6 +13,7 @@
       :description="oneword"
       :closable="false" >
     </el-alert>
+    <span>当前名字：{{names}}</span>
    <div ref="canvas" style="background-color: #bcbcbc; width: 100%; height: 60vh;"></div>
   </div>
 </template>
@@ -20,15 +21,21 @@
 <script>
 // import Q from '@/lib/'
 import Q from '@/lib/qunee-es.js';
+import{ nameOrAll } from '@/api/home.js'
 
 export default {
   data(){
     return{
-       oneword:''
+       oneword:'',
+       names:'aa'
     } 
   },
   methods:{
-     
+     async getNameOAll () {
+      const { data } = await nameOrAll()
+      // data = JSON.parse(data)
+      this.names = data[0]['names']
+    }
   },
    mounted(){
       var graph = new Q.Graph(this.$refs.canvas);
@@ -56,6 +63,7 @@ export default {
         });
         return group;
     }
+    
 
     graph.onclick = function(evt){
         var data = evt.getData();
@@ -117,7 +125,7 @@ export default {
     graph.zoomToOverview()
     },
     created(){
-       
+       this.getNameOAll()
     }
 }
 </script>

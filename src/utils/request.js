@@ -1,7 +1,7 @@
 /*
  * @Author: jacob
  * @Date: 2020-11-25 16:59:00
- * @LastEditTime: 2020-11-26 17:05:36
+ * @LastEditTime: 2020-12-02 11:25:33
  * @LastEditors: jacob
  * @Description:请求工具类
  */
@@ -19,13 +19,13 @@
  // 它支持由用户来决定如何转换后端返回的数据
  request.defaults.transformResponse = [function (data) {
    try {
-     // 正常的话它使用的 JSON.parse 对数据进行转换
-     // return JSON.parse(data)
+    //  正常的话它使用的 JSON.parse 对数据进行转换
+     return JSON.parse(data)
  
      // 这里我们定制使用 json-bigint 这个第三方工具包来帮我们转换
      // 如果转换成功，就直接返回数据
      // 如果转换失败，就进入 catch 返回一个空对象给用户
-     return jsonBig.parse(data)
+    //  return jsonBig.parse(data)
    } catch (err) {
      return {}
    }

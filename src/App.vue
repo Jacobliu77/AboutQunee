@@ -1,7 +1,7 @@
 <!--
  * @Author: jacob
  * @Date: 2020-10-13 10:38:42
- * @LastEditTime: 2020-11-26 10:27:58
+ * @LastEditTime: 2020-11-30 10:55:51
  * @LastEditors: jacob
  * @Description: vue的入口文件
 -->
@@ -20,7 +20,7 @@
           mode="horizontal"
           :router = "true"
           active-text-color="#409EFF">
-          <img src="./assets/puppy1.png" alt="" style="float:left;height:60px" >
+          <img src="@/assets/puppy1.png" alt="" style="float:left;height:60px" >
            <img src="./assets/qunee.png" alt="" style="float:left;height:60px">
           <el-menu-item index="/use">应用场景分析</el-menu-item>
           <el-menu-item index="/assets">辅助图元</el-menu-item>
