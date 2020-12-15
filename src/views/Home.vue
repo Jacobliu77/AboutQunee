@@ -1,7 +1,7 @@
 <!--
  * @Author: jacob
  * @Date: 2020-10-13 10:38:42
- * @LastEditTime: 2020-11-26 15:11:49
+ * @LastEditTime: 2020-12-14 15:35:32
  * @LastEditors: jacob
  * @Description: another
 -->
@@ -16,8 +16,7 @@
     </el-alert>
     <weather></weather>
     <img alt="qunee logo" src="../assets/qunee-logo.png">
-    
-    
+   
   </div>
 </template>
 
@@ -34,8 +33,12 @@ export default {
   },
    data() {
      return {
-       oneword:''
+       oneword:'',
+      
      }
+   },
+   computed:{
+    
    },
    methods:{
      async loadOneWord () {
