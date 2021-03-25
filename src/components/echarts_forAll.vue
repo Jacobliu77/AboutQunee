@@ -1,7 +1,7 @@
 <!--
  * @Author: jacob
  * @Date: 2020-12-10 11:02:20
- * @LastEditTime: 2020-12-10 11:25:41
+ * @LastEditTime: 2020-12-17 15:29:51
  * @LastEditors: jacob
  * @Description: echarts通用组件
 -->
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import echarts from 'echarts'
+// import {echarts} from 'echarts'
 export default {
      name: 'echartsCompones',
      data(){
@@ -19,7 +19,7 @@ export default {
      },
      methods:{
          drawEcharts () {
-              var echarts = require('echarts');
+              var echarts = require('@/lib/echarts.min.js');
               let myChart = echarts.init(document.getElementById('chart_example'));
               let option = {
                 color: ['#f44'],
